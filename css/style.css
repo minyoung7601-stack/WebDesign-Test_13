@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+button {
+  cursor: pointer;
+  border: 0;
+}
+body {
+  background: #fff;
+  color: #333;
+}
+.wrap {
+  width: 100%;
+  height: 950px;
+  position: relative; /*팝업의 기준점*/
+}
+.top {
+  height: 850px;
+  background: #fff;
+  display: flex;
+}
+header {
+  width: 200px;
+  background: greenyellow;
+  padding: 30px 10px;
+}
+header h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+nav > ul > li > a {
+  display: block;
+  background: skyblue;
+  padding: 10px 20px;
+}
+nav > ul > li:hover > a,
+nav > ul > li > a:focus,
+nav > ul > li.on > a {
+  background: yellow;
+}
+.sub {
+  display: none;
+}
+.sub li a {
+  display: block;
+  background: #fff;
+  padding: 10px 20px;
+}
+.sub li a:hover,
+.sub li a:focus {
+  background: #ccc;
+}
+.spot {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+.contents {
+  /* background: #ccc; */ /*con 작업시 지움*/
+  width: calc(100% - 200px);
+}
+.slide {
+  height: 400px;
+  background: #aaa;
+  overflow: hidden;
+}
+.slide ul {
+  display: flex;
+  width: 300%;
+}
+.slide ul li {
+  width: calc(100% / 3);
+  height: 400px;
+  position: relative;
+}
+.slide ul li h2 {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  color: #fff;
+  font-size: 40px;
+}
+.slide ul li a {
+  display: block;
+  height: 100%;
+}
+.s1 {
+  background: url(../images/img1.jpg) no-repeat center/cover;
+}
+.s2 {
+  background: url(../images/img2.jpg) no-repeat center/cover;
+}
+.s3 {
+  background: url(../images/img3.jpg) no-repeat center/cover;
+}
+.go {
+  position: absolute; /* 💡 fixed에서 absolute로 변경 */
+  top: 0;
+  right: 0;
+  background: greenyellow;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.go li {
+  margin-bottom: 10px;
+}
+.go li a {
+  display: block;
+}
+.banner {
+  padding: 20px 50px;
+  height: 200px;
+}
+.banner a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  background: skyblue;
+}
+.banner .photo {
+  width: 250px;
+}
+.banner .text {
+  flex: 1;
+  padding: 0 20px;
+}
+.con {
+  height: 250px;
+  padding: 20px 50px;
+  position: relative; /*tabcon의 기준*/
+}
+.tabmenu {
+  display: flex;
+}
+.tabmenu > li {
+  width: 150px;
+  background: #999;
+  color: #fff;
+}
+.tabmenu > li > h2 > a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+}
+.tabmenu > li.on {
+  background: #369;
+}
+.tabcon {
+  position: absolute;
+  left: 50px;
+  width: calc(100% - 100px);
+  height: 160px; /* 공지사항과 갤러리 내용 박스 높이를 통일 */
+  background: #369;
+  padding: 10px 20px;
+  display: none; /* 기본적으로 모든 탭 내용은 숨김 */
+}
+/* li에 on 클래스가 붙은 경우, 그 자식인 tabcon만 보여줌 */
+.tabmenu > li.on .tabcon {
+  display: block;
+}
+.notice li a {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 5px 0;
+  color: #fff; /* 💡 여기에 직접 흰색을 주어야 브라우저 기본색을 덮어씁니다. */
+}
+.notice li a:hover {
+  background: yellowgreen;
+  color: #333; /* 💡 글씨색을 어둡게 변경 (시인성 확보) */
+}
+
+/* 갤러리 */
+.gall ul {
+  display: flex;
+  gap: 20px;
+}
+.gall ul li {
+  width: calc(100% / 3);
+}
+.gall ul li a {
+  display: block;
+  height: 100%;
+  text-align: center;
+}
+.gall ul li p {
+  margin-bottom: 10px;
+}
+.gall ul li img {
+  width: 100%;
+  height: 100px; /* 높이 고정 */
+  object-fit: cover;
+}
+.gall a:hover img {
+  opacity: 0.6;
+}
+/*팝업*/
+.popup {
+  position: absolute; /*wrap을 기준*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 250px;
+  background: yellowgreen;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 10px;
+  z-index: 100;
+  display: none; /* 기본적으로 팝업 숨김 */
+}
+.popup_txt h2 {
+  margin-bottom: 20px;
+}
+.popup_txt p {
+  margin-bottom: 10px;
+  line-height: 2;
+}
+.close {
+  text-align: right;
+}
+.close button {
+  padding: 10px 10px;
+  background: #fff;
+}
+.close button:hover {
+  background: yellow;
+}
+footer {
+  width: 100%;
+  height: 100px;
+  background: #666;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.f_logo {
+  width: 200px; /* 상단 헤더와 똑같은 200px 방 */
+  display: flex;
+  justify-content: center; /* 방 안에서 로고 정중앙 배치 */
+}
+.f_logo a {
+  display: block;
+}
+.f_logo img {
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+.f_copy {
+  flex: 1; /* ⭐️ 핵심: 남은 중앙 공간을 통째로 차지해서 카피라이트를 늘림 */
+  text-align: center; /* 카피라이트 글자를 전체 화면 기준 정중앙 정렬 */
+  color: #fff;
+}
+
+.f_sns {
+  width: 200px; /* ⭐️ 중요: 왼쪽 로고와 대칭을 맞추기 위해 똑같이 200px 부여 */
+  padding-right: 20px; /* 오른쪽 벽에서 살짝 떼어내기 */
+}
+
+.f_sns ul {
+  display: flex;
+  justify-content: flex-end; /* ⭐️ 핵심: 200px 크기의 .f_sns 안에서 아이콘들을 우측 끝 정렬! */
+  gap: 15px;
+}
+
+.f_sns ul li a {
+  display: block;
+}
+
+/* SNS 아이콘이 너무 커서 푸터가 깨지는 걸 막아주는 안전장치 */
+.f_sns ul li a img {
+  display: block;
+  height: 40px; /* 아이콘 세로 크기를 깔끔하게 고정 */
+  width: auto;
+}
