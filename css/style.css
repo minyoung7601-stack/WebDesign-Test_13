@@ -43,6 +43,12 @@ header h1 {
   text-align: center;
   margin-bottom: 30px;
 }
+header h1 a {
+  display: block; /* 1. 인라인 성격을 블록으로 변경 (크기 가질 수 있게) */
+  width: 100%; /* 2. 부모인 h1 너비만큼 꽉 채우기 */
+  height: 100%; /* 3. 부모인 h1 높이만큼 꽉 채우기 */
+}
+
 nav > ul > li > a {
   display: block;
   background: skyblue;
@@ -74,6 +80,7 @@ nav > ul > li.on > a {
 .spot a:focus {
   background: yellow;
 }
+
 .contents {
   /* background: #ccc; */ /*con 작업시 지움*/
   width: calc(100% - 200px);
