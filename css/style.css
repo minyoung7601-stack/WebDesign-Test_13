@@ -179,6 +179,7 @@ nav > ul > li.on > a {
   display: block;
   padding: 10px;
   text-align: center;
+  border-bottom: 1px solid #fff;
 }
 .tabmenu > li.on {
   background: #369;
