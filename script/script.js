@@ -9,16 +9,12 @@ $(function () {
   });
 
   //슬라이드
-  let i = 0;
-  function slide() {
-    if (i < 2) {
-      i++;
-    } else {
-      i = 0;
-    }
-    $(".slide ul").animate({ marginLeft: i * -100 + "%" }, 1000);
-  }
-  setInterval(slide, 3000);
+  setInterval(function () {
+    $(".slide ul").animate({ top: "-100%" }, 500, function () {
+      $(".slide ul li:first").appendTo(".slide ul");
+      $(".slide ul").css("top", "0");
+    });
+  }, 3000);
 
   //탭메뉴
   $(".tabmenu > li").click(function () {
