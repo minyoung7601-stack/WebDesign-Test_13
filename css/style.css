@@ -70,6 +70,10 @@ nav > ul > li.on > a {
   text-align: center;
   font-size: 14px;
 }
+.spot a:hover,
+.spot a:focus {
+  background: yellow;
+}
 .contents {
   /* background: #ccc; */ /*con 작업시 지움*/
   width: calc(100% - 200px);
@@ -81,7 +85,7 @@ nav > ul > li.on > a {
   position: relative;
 }
 .slide ul {
-  position: absolute;
+  position: absolute; /* 슬라이드들을 한곳에 "겹쳐놓기 완료" */
   top: 0;
   left: 0;
   width: 100%; /* 가로 꽉 차게 설정 */
